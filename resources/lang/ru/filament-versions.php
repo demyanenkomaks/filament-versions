@@ -25,4 +25,8 @@ return [
         'navigation_group' => 'Управление',
     ],
 
+    'shield' => [
+        'widget_label' => 'Виджет версий',
+    ],
+
 ];

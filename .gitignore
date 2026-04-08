@@ -4,6 +4,8 @@ src/vendor
 composer.phar
 composer.lock
 
+.phpunit.result.cache
+
 # IDE
 .idea
 .cursor

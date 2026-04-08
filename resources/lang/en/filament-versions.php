@@ -25,4 +25,8 @@ return [
         'navigation_group' => 'System',
     ],
 
+    'shield' => [
+        'widget_label' => 'Versions widget',
+    ],
+
 ];

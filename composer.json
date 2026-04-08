@@ -1,6 +1,6 @@
 {
     "name": "maksde/filament-versions",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Отображение версий в FilamentPhp.",
     "type": "library",
     "license": "MIT",

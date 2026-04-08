@@ -7,10 +7,16 @@ use Filament\Pages\Page;
 use Filament\Widgets\Widget;
 use Filament\Widgets\WidgetConfiguration;
 use Illuminate\Contracts\Support\Htmlable;
+use Maksde\FilamentVersions\Support\FilamentVersionsAccess;
 use Maksde\FilamentVersions\Widgets\VersionsPageWidget;
 
 class VersionsPage extends Page
 {
+    public static function canAccess(): bool
+    {
+        return parent::canAccess() && FilamentVersionsAccess::canViewVersionsPage();
+    }
+
     public static function getDefaultSlug(): string
     {
         return config('filament-versions.page.path', 'versions');

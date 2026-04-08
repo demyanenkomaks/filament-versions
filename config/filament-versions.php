@@ -21,6 +21,7 @@ return [
     |
     */
     'widget' => [
+        'permission' => false,
         'column_span' => 'full',
         'sort' => null,
         'providers' => [
@@ -40,10 +41,11 @@ return [
     |--------------------------------------------------------------------------
     */
     'page' => [
+        'permission' => false,
         'enabled' => true,
         'path' => 'versions',
         'should_register_navigation' => true,
-        'navigation_sort' => null,
+        'navigation_sort' => 99,
         'navigation_icon' => Heroicon::OutlinedSquares2x2,
         'providers' => [
             PhpVersionProvider::class,
@@ -52,7 +54,7 @@ return [
             AppEnvVersionProvider::class,
             MysqlVersionProvider::class,
             // PostgresqlVersionProvider::class,
-            RedisVersionProvider::class,
+            // RedisVersionProvider::class,
         ],
     ],
 
