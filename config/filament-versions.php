@@ -1,0 +1,59 @@
+<?php
+
+use Filament\Support\Icons\Heroicon;
+use Maksde\FilamentVersions\Providers\AppEnvVersionProvider;
+use Maksde\FilamentVersions\Providers\FilamentVersionProvider;
+use Maksde\FilamentVersions\Providers\LaravelVersionProvider;
+use Maksde\FilamentVersions\Providers\MysqlVersionProvider;
+use Maksde\FilamentVersions\Providers\PhpVersionProvider;
+use Maksde\FilamentVersions\Providers\PostgresqlVersionProvider;
+use Maksde\FilamentVersions\Providers\RedisVersionProvider;
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dashboard / custom page widget
+    |--------------------------------------------------------------------------
+    |
+    | Register VersionsWidget::class in your panel or page widgets.
+    | `providers` is a list of VersionProvider class names in display order.
+    |
+    */
+    'widget' => [
+        'column_span' => 'full',
+        'sort' => null,
+        'providers' => [
+            PhpVersionProvider::class,
+            LaravelVersionProvider::class,
+            FilamentVersionProvider::class,
+            AppEnvVersionProvider::class,
+            // MysqlVersionProvider::class,
+            // PostgresqlVersionProvider::class,
+            // RedisVersionProvider::class,
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dedicated versions page
+    |--------------------------------------------------------------------------
+    */
+    'page' => [
+        'enabled' => true,
+        'path' => 'versions',
+        'should_register_navigation' => true,
+        'navigation_sort' => null,
+        'navigation_icon' => Heroicon::OutlinedSquares2x2,
+        'providers' => [
+            PhpVersionProvider::class,
+            LaravelVersionProvider::class,
+            FilamentVersionProvider::class,
+            AppEnvVersionProvider::class,
+            MysqlVersionProvider::class,
+            // PostgresqlVersionProvider::class,
+            RedisVersionProvider::class,
+        ],
+    ],
+
+];

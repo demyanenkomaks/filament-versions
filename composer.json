@@ -1,0 +1,55 @@
+{
+    "name": "maksde/filament-versions",
+    "version": "1.0.0",
+    "description": "Отображение версий в FilamentPhp.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Maksde\\FilamentVersions\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Demyanenko Maksim",
+            "email": "demyanenkomaks0@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.2",
+        "filament/filament": "^4.0|^5.0"
+    },
+    "require-dev": {
+        "driftingly/rector-laravel": "^2.0",
+        "laravel/framework": "^12.0|^13.0",
+        "laravel/pint": "^1.13",
+        "larastan/larastan": "^3.3",
+        "orchestra/testbench": "^11.0",
+        "phpunit/phpunit": "^11.5.20"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Maksde\\FilamentVersions\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit -c phpunit.xml.dist",
+        "pint": "./vendor/bin/pint",
+        "phpstan": "./vendor/bin/phpstan analyse --memory-limit=-1",
+        "rector": "./vendor/bin/rector process --clear-cache",
+        "rector:dry": "./vendor/bin/rector process --clear-cache --dry-run",
+        "fix": [
+            "@rector",
+            "@pint",
+            "@phpstan"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Maksde\\FilamentVersions\\FilamentVersionsServiceProvider"
+            ]
+        }
+    }
+}
