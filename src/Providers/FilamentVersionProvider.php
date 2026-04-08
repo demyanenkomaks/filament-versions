@@ -18,8 +18,8 @@ class FilamentVersionProvider extends AbstractVersionProvider
     {
         try {
             return InstalledVersions::getVersion('filament/filament') ?? 'n/a';
-        } catch (Throwable $e) {
-            return $e->getMessage();
+        } catch (Throwable $throwable) {
+            return $throwable->getMessage();
         }
     }
 

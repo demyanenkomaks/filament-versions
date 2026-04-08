@@ -17,13 +17,13 @@ class RedisVersionProvider extends AbstractVersionProvider
     public function getVersion(): string
     {
         try {
-            $info = Redis::connection()->info();
+            $info = Redis::connection()->command('info', []);
 
             $version = $this->extractRedisVersion(is_array($info) ? $info : []);
 
             return $version ?? 'n/a';
-        } catch (Throwable $e) {
-            return $e->getMessage();
+        } catch (Throwable $throwable) {
+            return $throwable->getMessage();
         }
     }
 
@@ -50,6 +50,7 @@ class RedisVersionProvider extends AbstractVersionProvider
             if (! is_array($value)) {
                 continue;
             }
+
             $nested = $this->extractRedisVersion($value);
             if ($nested !== null) {
                 return $nested;

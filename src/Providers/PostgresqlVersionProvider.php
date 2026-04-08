@@ -20,8 +20,8 @@ class PostgresqlVersionProvider extends AbstractVersionProvider
             $row = DB::connection()->selectOne('SELECT version() AS value');
 
             return (string) ($row->value ?? 'n/a');
-        } catch (Throwable $e) {
-            return $e->getMessage();
+        } catch (Throwable $throwable) {
+            return $throwable->getMessage();
         }
     }
 
